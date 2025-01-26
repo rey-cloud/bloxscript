@@ -3128,14 +3128,19 @@ local function FarmPet()
         end
     
         -- Create rows for stats
-        local petToEquipName = fsys.get("pet_char_wrappers")[1]["char"] or "Loading..."
         local moneyValue = createStatRow(statsContainer, "MONEY:", 1)
         local potionValue = createStatRow(statsContainer, "POTION:", 2)
         local timeValue = createStatRow(statsContainer, "TIME:", 3)
         local taskValue = createStatRow(statsContainer, "TASK:", 4)
         local petValue = createStatRow(statsContainer, "PET:", 5)
         local farmType = createStatRow(statsContainer, "Farm Type:", 6)
-        
+        local petWrappers = fsys.get("pet_char_wrappers") -- Get the pet wrappers
+        local petToEquipName = "Loading..."
+        if petWrappers and petWrappers[1] and petWrappers[1]["char"] then
+            petToEquipName = petWrappers[1]["char"]
+        end
+        print(petToEquipName)
+
     
         -- Function to format elapsed time
         local function formatTime(seconds)
