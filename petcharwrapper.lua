@@ -187,8 +187,6 @@ local function FarmPetGui()
                 if game:GetService("Players").LocalPlayer.PlayerGui.DailyLoginApp.Enabled then
                     FireSig(game:GetService("Players").LocalPlayer.PlayerGui.DailyLoginApp.Frame.Body.Buttons.ClaimButton)
                     task.wait(1)
-                    game:GetService("Players").LocalPlayer.PlayerGui.DailyLoginApp.Visible = false
-                    game:GetService("Players").LocalPlayer.PlayerGui.DailyLoginApp.Enabled = false
                 end
 
                 local DoneAutoPlay = true
@@ -649,7 +647,7 @@ local function FarmPetGui()
     
     
     
-        task.wait(0.5)
+        task.wait(1)
         -- ########################################################################################################################################################################
         local taskName = "none"
         local function EatDrink(isEquippedPet)
@@ -763,7 +761,7 @@ local function FarmPetGui()
         local function startPetFarm()
             game:GetService("ReplicatedStorage"):WaitForChild("API"):WaitForChild("TeamAPI/ChooseTeam"):InvokeServer("Babies",{["dont_send_back_home"] = true, ["source_for_logging"] = "avatar_editor"})
             game:GetService("ReplicatedStorage"):WaitForChild("API"):WaitForChild("TeamAPI/Spawn"):InvokeServer()
-            task.wait(0.5)
+            task.wait(1)
             buyItems()
             local LiveOpsMapSwap = require(game:GetService("ReplicatedStorage").SharedModules.Game.LiveOpsMapSwap)
             game:GetService("ReplicatedStorage").API:FindFirstChild("LocationAPI/SetLocation"):FireServer("MainMap",
@@ -771,7 +769,7 @@ local function FarmPetGui()
             teleportPlayerNeeds(0,350,0)
             createPlatform()
             equipPet()
-            task.wait(0.5)
+            task.wait(1)
     
             local Players = game:GetService("Players")
             local player = Players.LocalPlayer
@@ -1496,7 +1494,7 @@ local function FarmPetGui()
         local RunService = game:GetService("RunService")
         local currentText
     
-        task.wait(3)
+        task.wait(10)
         task.spawn(startPetFarm)
     else
         print("Script already running")
@@ -1645,7 +1643,7 @@ local function FarmPet()
         end)
     
     
-        task.wait(0.5)
+        task.wait(1)
         local xc = 0
         local NewAcc = false
         local HasTradeLic = false
@@ -1741,8 +1739,6 @@ local function FarmPet()
                 if game:GetService("Players").LocalPlayer.PlayerGui.DailyLoginApp.Enabled then
                     FireSig(game:GetService("Players").LocalPlayer.PlayerGui.DailyLoginApp.Frame.Body.Buttons.ClaimButton)
                     task.wait(1)
-                    game:GetService("Players").LocalPlayer.PlayerGui.DailyLoginApp.Visible = false
-                    game:GetService("Players").LocalPlayer.PlayerGui.DailyLoginApp.Enabled = false
                 end
             end
         end)
@@ -2271,7 +2267,7 @@ local function FarmPet()
             teleportPlayerNeeds(0,350,0)
             createPlatform()
             equipPet()
-            task.wait(0.5)
+            task.wait(1)
     
             local Players = game:GetService("Players")
             local player = Players.LocalPlayer
@@ -3139,8 +3135,6 @@ local function FarmPet()
         if petWrappers and petWrappers[1] and petWrappers[1]["char"] then
             petToEquipName = petWrappers[1]["char"]
         end
-        
-
     
         -- Function to format elapsed time
         local function formatTime(seconds)
@@ -3229,11 +3223,11 @@ local function FarmPet()
         -- Connect the function to UserInputService
         UserInputService.InputBegan:Connect(onKeyPress)
     
-        task.wait(5)
+        task.wait(10)
         task.spawn(startPetFarm)
-        task.wait(.5)
+        task.wait(1)
         task.spawn(startUIUpdate)
-        task.wait(0.5)
+        task.wait(1)
         task.spawn(function()
             RGBCycle(titleLabel)
         end)
