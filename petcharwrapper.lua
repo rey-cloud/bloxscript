@@ -3135,6 +3135,7 @@ local function FarmPet()
         if petWrappers and petWrappers[1] and petWrappers[1]["char"] then
             petToEquipName = petWrappers[1]["char"]
         end
+        print(petToEquipName)
     
         -- Function to format elapsed time
         local function formatTime(seconds)
