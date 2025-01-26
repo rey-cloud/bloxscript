@@ -1,4 +1,4 @@
--- Replaced version (https://github.com/Hiraeth127/WorkingVersions.lua/blob/main/FarmPet105d.lua)
+-- Replaced version (https://github.com/Hiraeth127/WorkingVersions.lua/blob/main/FarmPet105d.lua) -hotdog
 -- Currrent version FarmPet105e.lua
 -- Added auto rejoin
 
